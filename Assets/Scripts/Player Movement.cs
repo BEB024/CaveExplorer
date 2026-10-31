@@ -3,7 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float playerSpeed = 10f;
+    [SerializeField] float playerSpeed = 7f;
+    [SerializeField] float playerJumpSpeed = 15f;
 
     Vector2 moveInput;
     Rigidbody2D playerRigibody;
@@ -24,7 +25,16 @@ public class PlayerMovement : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        Debug.Log("Move has activated" + moveInput);
+        // Debug.Log("Move has activated" + moveInput);
+    }
+
+    void OnJump(InputValue value)
+    {
+        if (value.isPressed) // Check if the jump button (what is assigned to it in the input actions) is pressed (it is specifically for Jump due to OnJump being called when the jump button is pressed)
+        {
+            //Debug.Log("Jump has activated");
+            playerRigibody.linearVelocity += new Vector2(0f, playerJumpSpeed); // Add a vertical velocity to the player when jumping  
+        }
     }
 
     void Run()

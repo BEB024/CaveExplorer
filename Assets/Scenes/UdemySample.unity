@@ -6696,6 +6696,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5078647995395357908, guid: 01a27d5bbe99f0e408b3e3862116d9ac, type: 3}
+      propertyPath: m_GravityScale
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078647995395357908, guid: 01a27d5bbe99f0e408b3e3862116d9ac, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6524206129816064521, guid: 01a27d5bbe99f0e408b3e3862116d9ac, type: 3}
       propertyPath: m_Name
       value: Bronzo (Player)
@@ -6765,7 +6773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef928ee958fe0a4e9adbf586b6789d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  playerSpeed: 5
+  playerSpeed: 7
+  playerJumpSpeed: 15
 --- !u!1 &1581697381
 GameObject:
   m_ObjectHideFlags: 0
