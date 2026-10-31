@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float playerSpeed = 7f;
     [SerializeField] float playerJumpSpeed = 15f;
+    [SerializeField] float playerClimbSpeed = 5f;
 
     Vector2 moveInput;
     Rigidbody2D playerRigibody;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Run();
         FlipSprite();
+        ClimbLadder();
     }
 
     void OnMove(InputValue value)
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     void OnJump(InputValue value)
     {
         // Check if the player is not touching the ground layer (to prevent double jumping)
-        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return;} // Exit the function if the player is not on the ground
+        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; } // Exit the function if the player is not on the ground
         if (value.isPressed) // Check if the jump button (what is assigned to it in the input actions) is pressed (it is specifically for Jump due to OnJump being called when the jump button is pressed)
         {
             //Debug.Log("Jump has activated");
@@ -61,6 +63,18 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Sign(playerRigibody.linearVelocity.x), 1f); 
             // If the player is moving to the right, the sign will be positive, if moving left, it will be negative. This will flip the sprite.
         }
+    }
+
+    void ClimbLadder()
+    {
+        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) { return; } // Exit the function if the player is not touching the climbing layer
+
+        Vector2 climbVelocity = new Vector2(playerRigibody.linearVelocity.x, moveInput.y * playerClimbSpeed);
+        playerRigibody.linearVelocity = climbVelocity;
+        Debug.Log("Ladder touched!");
+
+        bool playerClimbing = Mathf.Abs(playerRigibody.linearVelocity.y) > Mathf.Epsilon; // Check if the player is climbing (moving vertically)
+        playerAnimator.SetBool("isClimbing", playerClimbing);
     }
 
 }
