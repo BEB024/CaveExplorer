@@ -3,13 +3,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] float playerSpeed = 10f;
+
     Vector2 moveInput;
     Rigidbody2D playerRigibody;
-    [SerializeField] float playerSpeed = 10f;
+    Animator playerAnimator;
 
     void Start()
     {
-     playerRigibody = GetComponent<Rigidbody2D>();
+        playerRigibody = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     void Update()
@@ -28,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 playerVelocity = new Vector2(moveInput.x * playerSpeed, playerRigibody.linearVelocity.y);
         playerRigibody.linearVelocity = playerVelocity;
+
+        bool hasHorizontalSpeed = Mathf.Abs(playerRigibody.linearVelocity.x) > Mathf.Epsilon; // Reuse the hasHorizontalSpeed variable to check if the player is moving horizontally
+        playerAnimator.SetBool("isRunning", hasHorizontalSpeed);
     }
 
     void FlipSprite()
