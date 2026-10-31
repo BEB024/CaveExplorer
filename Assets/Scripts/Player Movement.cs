@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
         if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
         {
             playerRigibody.gravityScale = playerStartGravity;
+            playerAnimator.SetBool("isClimbing", false);
             return; // Exit the function if the player is not touching the climbing layer
         }
         else
