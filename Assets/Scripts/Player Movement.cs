@@ -9,11 +9,13 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D playerRigibody;
     Animator playerAnimator;
+    CapsuleCollider2D playerCollider;
 
     void Start()
     {
         playerRigibody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        playerCollider = GetComponent<CapsuleCollider2D>();
     }
 
     void Update()
@@ -30,10 +32,13 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
+        // Check if the player is not touching the ground layer (to prevent double jumping)
+        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return;} // Exit the function if the player is not on the ground
         if (value.isPressed) // Check if the jump button (what is assigned to it in the input actions) is pressed (it is specifically for Jump due to OnJump being called when the jump button is pressed)
         {
             //Debug.Log("Jump has activated");
             playerRigibody.linearVelocity += new Vector2(0f, playerJumpSpeed); // Add a vertical velocity to the player when jumping  
+
         }
     }
 
