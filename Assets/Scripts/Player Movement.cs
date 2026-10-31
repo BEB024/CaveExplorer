@@ -11,12 +11,15 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D playerRigibody;
     Animator playerAnimator;
     CapsuleCollider2D playerCollider;
+    float playerStartGravity;
 
     void Start()
     {
         playerRigibody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         playerCollider = GetComponent<CapsuleCollider2D>();
+
+        playerStartGravity = playerRigibody.gravityScale; // Store the original gravity scale of the player
     }
 
     void Update()
@@ -38,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; } // Exit the function if the player is not on the ground
         if (value.isPressed) // Check if the jump button (what is assigned to it in the input actions) is pressed (it is specifically for Jump due to OnJump being called when the jump button is pressed)
         {
-            //Debug.Log("Jump has activated");
+            // Debug.Log("Jump has activated");
             playerRigibody.linearVelocity += new Vector2(0f, playerJumpSpeed); // Add a vertical velocity to the player when jumping  
 
         }
@@ -67,14 +70,20 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
-        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) { return; } // Exit the function if the player is not touching the climbing layer
+        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
+        {
+            playerRigibody.gravityScale = playerStartGravity;
+            return; // Exit the function if the player is not touching the climbing layer
+        }
+        else
+        {
+            Vector2 climbVelocity = new Vector2(playerRigibody.linearVelocity.x, moveInput.y * playerClimbSpeed);
+            playerRigibody.linearVelocity = climbVelocity;
+            playerRigibody.gravityScale = 0;
 
-        Vector2 climbVelocity = new Vector2(playerRigibody.linearVelocity.x, moveInput.y * playerClimbSpeed);
-        playerRigibody.linearVelocity = climbVelocity;
-        Debug.Log("Ladder touched!");
-
-        bool playerClimbing = Mathf.Abs(playerRigibody.linearVelocity.y) > Mathf.Epsilon; // Check if the player is climbing (moving vertically)
-        playerAnimator.SetBool("isClimbing", playerClimbing);
+            bool playerClimbing = Mathf.Abs(playerRigibody.linearVelocity.y) > Mathf.Epsilon; // Check if the player is climbing (moving vertically)
+            playerAnimator.SetBool("isClimbing", playerClimbing);
+        }
     }
 
 }
