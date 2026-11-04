@@ -27142,9 +27142,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5078647995395357908, guid: 01a27d5bbe99f0e408b3e3862116d9ac, type: 3}
+      propertyPath: m_GravityScale
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6524206129816064521, guid: 01a27d5bbe99f0e408b3e3862116d9ac, type: 3}
       propertyPath: m_Name
       value: Bronzo (Player)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558235156337323847, guid: 01a27d5bbe99f0e408b3e3862116d9ac, type: 3}
+      propertyPath: playerJumpSpeed
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8835662100389080347, guid: 01a27d5bbe99f0e408b3e3862116d9ac, type: 3}
       propertyPath: m_LocalPosition.x
