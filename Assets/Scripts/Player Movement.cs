@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float playerSpeed = 7f;
     [SerializeField] float playerJumpSpeed = 15f;
     [SerializeField] float playerClimbSpeed = 5f;
+    [SerializeField] Vector2 playerDeathKick = new Vector2(10f, 20f);
 
     Vector2 moveInput;
     Rigidbody2D playerRigibody;
@@ -13,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D bodyCollider;
     BoxCollider2D feetCollider;
     float playerStartGravity;
+
+    bool isAlive = true;
 
     void Start()
     {
@@ -26,13 +29,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!isAlive) { return; } // Exit the function if the player is not alive
         Run();
         FlipSprite();
         ClimbLadder();
+        Die();
     }
 
     void OnMove(InputValue value)
     {
+        if (!isAlive) { return; } // Exit the function if the player is not alive
         moveInput = value.Get<Vector2>();
         // Debug.Log("Move has activated" + moveInput);
     }
@@ -86,6 +92,16 @@ public class PlayerMovement : MonoBehaviour
 
             bool playerClimbing = Mathf.Abs(playerRigibody.linearVelocity.y) > Mathf.Epsilon; // Check if the player is climbing (moving vertically)
             playerAnimator.SetBool("isClimbing", playerClimbing);
+        }
+    }
+
+    void Die()
+    {
+        if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
+        {
+            isAlive = false;
+            playerAnimator.SetTrigger("Dying");
+            playerRigibody.linearVelocity = playerDeathKick; // Stop the player's movement when dying
         }
     }
 
