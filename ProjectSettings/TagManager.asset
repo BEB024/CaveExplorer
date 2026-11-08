@@ -53,14 +53,14 @@ TagManager:
   - name: Platforms
     uniqueID: 1322404577
     locked: 0
+  - name: Hazards
+    uniqueID: 3123008715
+    locked: 0
   - name: Enemies
     uniqueID: 4146868401
     locked: 0
   - name: Player
     uniqueID: 1192699041
-    locked: 0
-  - name: Hazards
-    uniqueID: 3123008715
     locked: 0
   m_RenderingLayers:
   - Default
