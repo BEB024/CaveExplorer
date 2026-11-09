@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float playerJumpSpeed = 15f;
     [SerializeField] float playerClimbSpeed = 5f;
     [SerializeField] Vector2 playerDeathKick = new Vector2(10f, 20f);
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
 
     Vector2 moveInput;
     Rigidbody2D playerRigibody;
@@ -93,6 +95,12 @@ public class PlayerMovement : MonoBehaviour
             bool playerClimbing = Mathf.Abs(playerRigibody.linearVelocity.y) > Mathf.Epsilon; // Check if the player is climbing (moving vertically)
             playerAnimator.SetBool("isClimbing", playerClimbing);
         }
+    }
+
+    void OnAttack(InputValue value)
+    {
+        if (!isAlive) { return; } // Exit the function if the player is not alive
+        Instantiate(bullet, gun.position, transform.rotation);
     }
 
     void Die()
