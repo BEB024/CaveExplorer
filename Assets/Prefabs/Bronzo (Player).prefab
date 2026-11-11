@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 7558235156337323847}
   m_Layer: 8
   m_Name: Bronzo (Player)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1192699041
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7894484093430313499, guid: 49fb5532665a12249b73b218d2f03d4c, type: 3}
@@ -346,3 +346,5 @@ MonoBehaviour:
   playerJumpSpeed: 20
   playerClimbSpeed: 5
   playerDeathKick: {x: 10, y: 20}
+  bullet: {fileID: 4063857483072859398, guid: fe9ff44244f82164ab0e540e6b1179cf, type: 3}
+  gun: {fileID: 837026446971534573}
