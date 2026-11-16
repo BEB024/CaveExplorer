@@ -28087,11 +28087,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8835662100389080347, guid: 01a27d5bbe99f0e408b3e3862116d9ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.39
+      value: -13.43
       objectReference: {fileID: 0}
     - target: {fileID: 8835662100389080347, guid: 01a27d5bbe99f0e408b3e3862116d9ac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.485
+      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: 8835662100389080347, guid: 01a27d5bbe99f0e408b3e3862116d9ac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29075,11 +29075,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8196991664739071279, guid: 7c8da05aa5aa9bd4dac342e7817a5be1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.319235
+      value: -9.318854
       objectReference: {fileID: 0}
     - target: {fileID: 8196991664739071279, guid: 7c8da05aa5aa9bd4dac342e7817a5be1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4883
+      value: -0.41333
       objectReference: {fileID: 0}
     - target: {fileID: 8196991664739071279, guid: 7c8da05aa5aa9bd4dac342e7817a5be1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29191,6 +29191,14 @@ PrefabInstance:
       propertyPath: AnimatedTarget
       value: 
       objectReference: {fileID: 1545697641}
+    - target: {fileID: 184083732636448508, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 184083732636448508, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.40999988
+      objectReference: {fileID: 0}
     - target: {fileID: 643459872498490544, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -29231,6 +29239,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1337987658148990008, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337987658148990008, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.40999994
+      objectReference: {fileID: 0}
     - target: {fileID: 1825108529415602971, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
       propertyPath: BoundingShape2D
       value: 
@@ -29246,6 +29262,14 @@ PrefabInstance:
     - target: {fileID: 5229174034587011635, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
       propertyPath: m_Name
       value: State-Driven Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345353571106757047, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345353571106757047, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.40999988
       objectReference: {fileID: 0}
     - target: {fileID: 5532329365502698511, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
       propertyPath: BoundingShape2D
@@ -29263,6 +29287,14 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 1545697636}
+    - target: {fileID: 7186842711873223546, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186842711873223546, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.40999988
+      objectReference: {fileID: 0}
     - target: {fileID: 7453752591262485853, guid: 52a087d23a98a8e439aed02f09ad2a17, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
