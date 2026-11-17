@@ -32,6 +32,6 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject, 0.5f); // Delay before destroying the bullet on collision with any object
+        Destroy(gameObject, 0.1f); // Delay before destroying the bullet on collision with any object
     }
 }

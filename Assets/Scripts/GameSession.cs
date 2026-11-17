@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameSession : MonoBehaviour
 {
     [SerializeField] int playerLives = 3; // Number of lives the player has
+    [SerializeField] float levelLoadDelay = 1f; // Delay in seconds before reloading
 
     void Awake()
     {
@@ -26,23 +28,28 @@ public class GameSession : MonoBehaviour
     {
         if (playerLives > 1)
         {
-            TakeLife();
+            StartCoroutine(TakeLife());
         }
         else
         {
-            ResetGameSession();
+            StartCoroutine(ResetGameSession());
         }
     }
 
-    void TakeLife()
+    IEnumerator TakeLife()
     {
         playerLives--; // Reduce the number of lives by 1
+
+        yield return new WaitForSeconds(levelLoadDelay); // Pause here for 1 second
+
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; // Get the current scene index
         SceneManager.LoadScene(currentSceneIndex); // Reload the current scene
     }
 
-    void ResetGameSession()
+    IEnumerator ResetGameSession()
     {
+        yield return new WaitForSeconds(levelLoadDelay); // Pause here for 1 second
+
         SceneManager.LoadScene(0); // Load the first scene (index 0)
         Destroy(gameObject); // Destroy the GameSession object
     }
