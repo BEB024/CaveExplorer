@@ -1,11 +1,15 @@
+using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class GameSession : MonoBehaviour
 {
     [SerializeField] int playerLives = 3; // Number of lives the player has
+    [SerializeField] TextMeshProUGUI livesText;
+    [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] float levelLoadDelay = 1f; // Delay in seconds before reloading
 
     void Awake()
@@ -22,7 +26,10 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    // When player dies, reduce the number of lives by 1 and reload the current scene
+    void Start()
+    {
+        livesText.text = playerLives.ToString() + "L";
+    }
 
     public void ProcessPlayerDeath()
     {
@@ -37,13 +44,14 @@ public class GameSession : MonoBehaviour
     }
 
     IEnumerator TakeLife()
-    {
+    { // When player dies, reduce the number of lives by 1 and reload the current scene
         playerLives--; // Reduce the number of lives by 1
 
         yield return new WaitForSeconds(levelLoadDelay); // Pause here for 1 second
 
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; // Get the current scene index
         SceneManager.LoadScene(currentSceneIndex); // Reload the current scene
+        livesText.text = playerLives.ToString() + "L";
     }
 
     IEnumerator ResetGameSession()
