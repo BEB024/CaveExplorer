@@ -110,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
             isAlive = false;
             playerAnimator.SetTrigger("Dying");
             playerRigibody.linearVelocity = playerDeathKick; // Stop the player's movement when dying
+            FindAnyObjectByType<GameSession>().ProcessPlayerDeath(); // Call the ProcessPlayerDeath method from the GameSession script
         }
     }
 
