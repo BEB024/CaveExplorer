@@ -8,8 +8,11 @@ using UnityEngine.SceneManagement;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] int playerLives = 3; // Number of lives the player has
+    [SerializeField] int totalScore = 0;
+
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] TextMeshProUGUI scoreText;
+
     [SerializeField] float levelLoadDelay = 1f; // Delay in seconds before reloading
 
     void Awake()
@@ -29,6 +32,7 @@ public class GameSession : MonoBehaviour
     void Start()
     {
         livesText.text = playerLives.ToString() + "L";
+        scoreText.text = totalScore.ToString() + "S";
     }
 
     public void ProcessPlayerDeath()
@@ -41,6 +45,12 @@ public class GameSession : MonoBehaviour
         {
             StartCoroutine(ResetGameSession());
         }
+    }
+
+    public void AddToScore(int pointsToAdd)
+    {
+        totalScore += pointsToAdd; // Add the points to the total score
+        scoreText.text = totalScore.ToString() + "S"; // Update the score text
     }
 
     IEnumerator TakeLife()
