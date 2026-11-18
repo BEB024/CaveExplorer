@@ -12,8 +12,7 @@ public class CoinPickup : MonoBehaviour
         if (other.CompareTag("Player") && !isCollected)
         {
             isCollected = true;
-            // FindFirstObjectByType<GameSession>().AddToScore(pointsForCoinPickup); // Obsolete method, replaced with FindAnyObjectByType<GameSession>() for better performance and flexibility
-            FindAnyObjectByType<GameSession>().AddToScore(pointsForCoinPickup);
+            FindAnyObjectByType<GameSession>().AddToScore(pointsForCoinPickup); // FindFirstObjectByType<GameSession>().AddToScore(pointsForCoinPickup) was replaced for better performance
             AudioSource.PlayClipAtPoint(coinPickupSFX, transform.position);
             gameObject.SetActive(false); // Disable the coin object instead of destroying it (greater insurance)
             Destroy(gameObject);

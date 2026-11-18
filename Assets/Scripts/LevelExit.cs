@@ -23,6 +23,7 @@ public class LevelExit : MonoBehaviour
             nextSceneIndex = 0; // Reset to the first level (index 0) if we are at the last level to prevent an error
         }
 
+        FindAnyObjectByType<ScenePersist>().ResetScenePersist(); // Reset the ScenePersist object
         SceneManager.LoadScene(nextSceneIndex); // Load the next level
     }
 }
