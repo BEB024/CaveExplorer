@@ -18,7 +18,7 @@ public class GameSession : MonoBehaviour
     void Awake()
     {
         // Create a singleton pattern to ensure only one instance of GameSession exists
-        int numberGameSessions = FindObjectsByType<GameSession>().Length; // FindObjectsByType<GameSession>(FindObjectsSortMode.None).Length was replaced for better performance in Unity 2023.1 and later versions
+        int numberGameSessions = FindObjectsByType<GameSession>(FindObjectsSortMode.None).Length;
         if (numberGameSessions > 1)
         {
             Destroy(gameObject); // Destroy the duplicate GameSession object, the player
@@ -68,10 +68,17 @@ public class GameSession : MonoBehaviour
     {
         yield return new WaitForSeconds(levelLoadDelay); // Pause here for 1 second
 
-        FindAnyObjectByType<ScenePersist>().ResetScenePersist(); // Reset the ScenePersist object
+        if (ScenePersist.Instance != null) // Reset persistent coins and enemies
+        {
+            ScenePersist.Instance.ResetScenePersist();
+        }
 
-        SceneManager.LoadScene(0); // Load the first scene (index 0)
-        Destroy(gameObject); // Destroy the GameSession object
+        yield return null; // Allow Unity to destroy ScenePersist
+        
+        SceneManager.LoadScene(0); // Restart the game from the first scene
+        
+        Destroy(gameObject); // Destroy the old GameSession after initiating the reload
     }
+
 
 }

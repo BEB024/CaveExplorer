@@ -2,21 +2,35 @@ using UnityEngine;
 
 public class ScenePersist : MonoBehaviour
 {
+    public static ScenePersist Instance { get; private set; }
+
     void Awake()
     {
-        int numberScenePersists = FindObjectsByType<ScenePersist>().Length; // FindObjectsByType<ScenePersist>(FindObjectsSortMode.None).Length was replaced for better performance in Unity 2023.1 and later versions
-        if (numberScenePersists > 1)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void ResetScenePersist()
     {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+
         Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
     }
 }
