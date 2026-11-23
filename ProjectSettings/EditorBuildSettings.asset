@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Udemy/Level 3.unity
     guid: 9b5a4c88ac86cff47855da386f7d7c0b
+  - enabled: 1
+    path: Assets/Scenes/Udemy/Level 4.unity
+    guid: 5b5b98f2f817ee6428401882aa9c3180
+  - enabled: 1
+    path: Assets/Scenes/Udemy/Level 5.unity
+    guid: 93b5ae3eebd3881459bb61e86a612289
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

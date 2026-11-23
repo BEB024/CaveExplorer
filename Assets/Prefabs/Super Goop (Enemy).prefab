@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Super Goop (Enemy)
       objectReference: {fileID: 0}
+    - target: {fileID: 4476163537078953323, guid: 5e3e16f0587218e43957b089b8ccb251, type: 3}
+      propertyPath: m_Size.x
+      value: 0.33042395
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476163537078953323, guid: 5e3e16f0587218e43957b089b8ccb251, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0062149167
+      objectReference: {fileID: 0}
     - target: {fileID: 6166876483989463742, guid: 5e3e16f0587218e43957b089b8ccb251, type: 3}
       propertyPath: m_Color.b
       value: 0

@@ -199,6 +199,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 4087076138224728852, guid: 7f6ee2a2e863a624cb51bd2266c1f585, type: 3}
+      propertyPath: destinationScene
+      value: 
+      objectReference: {fileID: 102900000, guid: 9b5a4c88ac86cff47855da386f7d7c0b, type: 3}
+    - target: {fileID: 4087076138224728852, guid: 7f6ee2a2e863a624cb51bd2266c1f585, type: 3}
+      propertyPath: destinationScenePath
+      value: Assets/Scenes/Udemy/Level 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6334039079624113745, guid: 7f6ee2a2e863a624cb51bd2266c1f585, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.9492145
@@ -29232,11 +29240,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8196991664739071279, guid: 7c8da05aa5aa9bd4dac342e7817a5be1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.403061
+      value: -11.534283
       objectReference: {fileID: 0}
     - target: {fileID: 8196991664739071279, guid: 7c8da05aa5aa9bd4dac342e7817a5be1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.41334
+      value: -0.41305
       objectReference: {fileID: 0}
     - target: {fileID: 8196991664739071279, guid: 7c8da05aa5aa9bd4dac342e7817a5be1, type: 3}
       propertyPath: m_LocalPosition.z
